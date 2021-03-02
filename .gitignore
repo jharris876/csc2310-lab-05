@@ -1,3 +1,5 @@
 .DS_Store
-*.png
 /tutorial2/*.docx
+.idea
+*.iml
+*.class
