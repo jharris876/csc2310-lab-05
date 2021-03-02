@@ -11,6 +11,7 @@ public class UserAccountDriver {
         String username, password;
         boolean isLoginSuccessful;
         ArrayList<User> users = new ArrayList<>();
+        InputReader inputReader = InputReader.getInputReader();
 
         while (userChoice != 3) {
             System.out.println();
@@ -24,38 +25,33 @@ public class UserAccountDriver {
 
             if (userChoice == 1) {
                 System.out.println("Let's create a new user account!");
-                System.out.println("Enter a new username:");
-                Scanner inputReader = new Scanner(System.in);
-                username = inputReader.nextLine().trim();
+                username = inputReader.readStringValue("Enter a new username:");
                 while (username.isEmpty()) {
-                    System.out.println("Enter a new username:");
-                    username = inputReader.nextLine().trim();
+                    username = inputReader.readStringValue("Enter a new username:");
                 }
 
-                System.out.println("Enter password for the username:");
-                Scanner inputReader2 = new Scanner(System.in);
-                password = inputReader2.nextLine().trim();
+                password = inputReader.readStringValue("Enter a new password:");
                 while (password.isEmpty()) {
-                    System.out.println("Enter password for the username:");
-                    password = inputReader2.nextLine().trim();
+                    password = inputReader.readStringValue("Enter a new password:");
                 }
+
 
                 users.add(new User(username, password));
                 System.out.println("Congratulations! A new user account has been created with the username \"" + username + "\".\nYou can now login with this account.");
 
             } else if (userChoice == 2) {
 
-                System.out.println("Enter username:");
-                Scanner inputReader3 = new Scanner(System.in);
-                username = inputReader3.nextLine().trim();
+                username = inputReader.readStringValue("Enter a new username:");
                 while (username.isEmpty()) {
-                    System.out.println("Enter username:");
-                    username = inputReader3.nextLine().trim();
+                    username = inputReader.readStringValue("Enter a new username:");
                 }
 
-                System.out.println("Enter password:");
-                Scanner inputReader4 = new Scanner(System.in);
-                password = inputReader4.nextLine().trim();
+
+                password = inputReader.readStringValue("Enter a new password:");
+                while (password.isEmpty()) {
+                    password = inputReader.readStringValue("Enter a new password:");
+                }
+
 
                 Iterator iterator = users.iterator();
                 isLoginSuccessful = false;
